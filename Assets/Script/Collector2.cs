@@ -31,22 +31,36 @@ public class Collector2 : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll) {
 		if (IsItemCatched == false) { //アイテムを持っていないとき
 			if (coll.gameObject.tag == "Item") {
-				if (coll.gameObject.GetComponent<Item> ().Direction != monster2.Direction) {//アイテムを持った仲間とすれ違ったときの例外処理
-					
-				}else{
-					if (coll.gameObject.transform.root.gameObject != null) { //ぶつかったアイテムがすでに他キャラの子要素だったとき、奪い返す
-						Debug.Log("Collector2が奪い返した");
-						Debug.Log(coll.gameObject.transform.root.gameObject.name);
-	//					coll.gameObject.transform.root.gameObject.GetComponent<Collector1>().IsItemCatched = false;
-					}
-					coll.gameObject.transform.parent = this.gameObject.transform; //プレイヤーを親要素に設定
-	//				Debug.Log("dshjkal;2");
-					coll.transform.rotation = Quaternion.Euler (0, 0, 90);
-					IsItemCatched = true;
-					InvertDirection ();
-					coll.gameObject.GetComponent<Item> ().Direction = monster2.Direction; //Itemの方向をモンスターと同じ方向に
+				if (coll.gameObject.transform.root.gameObject != null) { //ぶつかったアイテムがすでに他キャラの子要素だったとき、奪い返す
+					Debug.Log("Collector1が奪い返した");
+					Debug.Log(coll.gameObject.transform.root.gameObject.name);
+					//					coll.gameObject.transform.root.gameObject.GetComponent<Collector2>().IsItemCatched = false;
 				}
+
+				coll.gameObject.transform.parent = this.gameObject.transform; //プレイヤーを親要素に設定
+				//				Debug.Log("dshjkal;");
+				coll.transform.rotation = Quaternion.Euler(0, 0, -90);
+				IsItemCatched = true;
+				InvertDirection ();
+				coll.gameObject.GetComponent<Item> ().Direction = monster2.Direction; //Itemの方向をモンスターと同じ方向に
 			}
+//			if (coll.gameObject.tag == "Item") {
+//				if (coll.gameObject.GetComponent<Item> ().Direction != monster2.Direction) {//アイテムを持った仲間とすれ違ったときの例外処理
+//					
+//				}else{
+//					if (coll.gameObject.transform.root.gameObject != null) { //ぶつかったアイテムがすでに他キャラの子要素だったとき、奪い返す
+//						Debug.Log("Collector2が奪い返した");
+//						Debug.Log(coll.gameObject.transform.root.gameObject.name);
+//	//					coll.gameObject.transform.root.gameObject.GetComponent<Collector1>().IsItemCatched = false;
+//					}
+//					coll.gameObject.transform.parent = this.gameObject.transform; //プレイヤーを親要素に設定
+//	//				Debug.Log("dshjkal;2");
+//					coll.transform.rotation = Quaternion.Euler (0, 0, 90);
+//					IsItemCatched = true;
+//					InvertDirection ();
+//					coll.gameObject.GetComponent<Item> ().Direction = monster2.Direction; //Itemの方向をモンスターと同じ方向に
+//				}
+//			}
 		}
 	}
 

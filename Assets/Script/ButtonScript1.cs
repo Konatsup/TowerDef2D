@@ -87,7 +87,8 @@ public class ButtonScript1 : MonoBehaviour,IDragHandler,IBeginDragHandler,IEndDr
 
 				}
 
-				if(player.money >= monsterCost){
+				if(player.money >= monsterCost){ 
+					soundManager.CoinSe ();
 					Instantiate (monster1, new Vector3 (-6, y, 0), Quaternion.Euler (0, 0, -90));
 					player.ReduceMoney (monsterCost);
 				}

@@ -13,7 +13,7 @@ public class Item : MonoBehaviour {
 	}
 
 	void Start(){
-		SetDirection(0);
+		Direction=0;
 	}
 		
 }

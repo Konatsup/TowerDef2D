@@ -42,7 +42,7 @@ public class Collector1 : MonoBehaviour {
 				coll.transform.rotation = Quaternion.Euler(0, 0, -90);
 				IsItemCatched = true;
 				InvertDirection ();
-				coll.gameObject.GetComponent<Item> ().SetDirection (monster1.Direction); //Itemの方向をモンスターと同じ方向に
+				coll.gameObject.GetComponent<Item> ().Direction = monster1.Direction; //Itemの方向をモンスターと同じ方向に
 			}
 		}
 	}

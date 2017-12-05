@@ -5,13 +5,15 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-
 	public static GameManager instance;
+	public AudioSource audioSource;
+	public AudioClip bgm;
 
 	// Use this for initialization
 	void Start ()
 	{
 		instance = this;
+		audioSource.PlayOneShot (bgm);
 //		StartCoroutine(DelayMethod(3.5f, () =>
 //			{
 //				Debug.Log("Delay call");
